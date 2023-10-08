@@ -25,8 +25,7 @@ h1 {
   padding: 5px 70px 5px 5px;
   width: 400px;
   background-color: #e4e4e4;
-  margin-top: 50px
-  
+  margin-top: 50px;
 }
 
 .input-task {
@@ -50,7 +49,7 @@ h1 {
     display: flex;
   }
   .input-task:focus ~ & {
-    animation: pulseAttention 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards
+    animation: pulseAttention 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards
       infinite;
   }
 }
@@ -68,8 +67,8 @@ h1 {
   font-size: 1.5rem;
 
   .input-task:not([value=""]) ~ & {
-     justify-content: flex-end;
-    }
+    justify-content: flex-end;
+  }
 }
 
 @keyframes pulseAttention {
