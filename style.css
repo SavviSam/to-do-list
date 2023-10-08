@@ -10,14 +10,72 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
+  /* background-color: #b375f2; */
+  color: #7128b9;
+  background-color: rgba(255, 255, 255, 0.366);
+  padding-top: 50px;
 }
 
-input {
-  font-size: 2rem;
-  border-radius: 5px;
-  margin-top: 50px;
+.input-div {
+  display: flex;
+  position: relative;
+  height: 44px;
+  padding: 5px 70px 5px 5px;
+  width: 400px;
+  background-color: #e4e4e4;
+  margin-top: 50px
+  
+}
+
+.input-task {
+  appearance: none;
+  .js & {
+    position: absolute;
+    left: -100vw;
+  }
+}
+
+.fauxInput {
+  display: none;
+  align-items: center;
+  max-width: 80%;
+  border: 0;
+  font-size: 1.5rem;
+  color: #777;
+  background-color: #e4e4e4;
+  border-right: 3px solid transparent;
+  .js & {
+    display: flex;
+  }
+  .input-task:focus ~ & {
+    animation: pulseAttention 1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards
+      infinite;
+  }
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  color: #a7a7a7;
+  font-size: 1.5rem;
+
+  .input-task:not([value=""]) ~ & {
+     justify-content: flex-end;
+    }
+}
+
+@keyframes pulseAttention {
+  50% {
+    border-color: black;
+  }
 }
 
 input[type="checkbox"] {
@@ -29,8 +87,9 @@ input[type="checkbox"] {
 }
 
 button {
-  font-size: 2rem;
-  border-radius: 5px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 li {
@@ -42,8 +101,14 @@ li {
   background-color: rgba(255, 255, 255, 0.84);
   padding: 10px;
   margin: 10px;
+}
 
-
+.buttons-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 10px;
+  /* justify-content: center; */
 }
 
 .container {
@@ -54,9 +119,16 @@ li {
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 10px;
 }
 
 .list {
   list-style: none;
+  opacity: 1;
+  margin-top: 50px;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }

@@ -17,22 +17,29 @@
 
     <div class="container">
       <div class="wrapper">
-        <div>
-          <input task-input type="text" placeholder="Add a Task" />
-          <button add-task-button>Add</button>
+        <div class="top">
+          <div class="input-div">
+            <input id="Input" task-input class="input-task" type="text" value="" />
+            <span class="fauxInput" dir="rtl"></span>
+            <label class="input-label" for="Input">Add a Task</label>
+          </div>
+          <div class="buttons-div">
+            <button add-task-button>Add</button>
+            <button clear-task-button>Clear All</button>
+          </div>
         </div>
         <ul list class="list">
-          <li listItem>
-            Eggs
-            <input checkbox type="checkbox" name="" id="" />
+          <li item>
+            eggs
+            <input type="checkbox" />
           </li>
-          <li listItem>
-            Milk
-            <input checkbox type="checkbox" name="" id="" />
+          <li item>
+            milk
+            <input type="checkbox" />
           </li>
-          <li listItem>
-            Yogurt
-            <input checkbox type="checkbox" name="" id="" />
+          <li item>
+            almonds
+            <input type="checkbox" />
           </li>
         </ul>
       </div>

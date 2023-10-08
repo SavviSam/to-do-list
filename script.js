@@ -1,8 +1,11 @@
-const input = document.querySelector("[task-input]");
-const addTaskButton = document.querySelector("[add-task-button]");
-// const item = document.querySelectorAll("[listItem]");
-const checkBox = document.querySelector("input[type=checkBox]");
 
+
+const fauxInput = document.querySelector(".fauxInput");
+const input = document.querySelector("[task-input]");
+
+const addTaskBtn = document.querySelector("[add-task-button]");
+const clearTaskBtn = document.querySelector("[clear-task-button]");
+const checkBox = document.querySelector("input[type=checkBox]");
 const list = document.querySelector("[list]");
 
 const inputLength = () => input.value.length;
@@ -20,19 +23,39 @@ const createListItem = () => {
     listItem.appendChild(itemCheckBox);
   }
 
-  //delete chilkd element on checkbox click
+  //delete child element on checkbox click
   const checkBox = document.querySelectorAll("input[type=checkbox]");
   checkBox.forEach((item) => {
     item.addEventListener("click", () => {
-      item.parentElement.remove();
+      item.parentElement.classList.add("fade");
+      setTimeout(() => {
+        item.parentElement.remove();
+      }, 300);
     });
   });
 
   input.value = "";
 };
 
-addTaskButton.addEventListener("click", () => {
+// add functionality to existintg list items
+const item = document.querySelectorAll("[item]");
+item.forEach((item) => {
   createListItem();
+});
+
+addTaskBtn.addEventListener("click", () => {
+  createListItem();
+});
+
+//clear all tasks
+clearTaskBtn.addEventListener("click", () => {
+  list.classList.add("fade");
+  setTimeout(() => {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+      list.classList.remove("fade");
+    }
+  }, 500);
 });
 
 input.addEventListener("keydown", (e) => {
@@ -42,3 +65,14 @@ input.addEventListener("keydown", (e) => {
     return;
   }
 });
+
+document.documentElement.setAttribute("class", "js");
+input.addEventListener(
+  "keydown",
+  function copyInput(event) {
+    fauxInput.textContent = input.value;
+
+    input.setAttribute("value", input.value);
+  },
+  false
+);
